@@ -1,14 +1,12 @@
-import { todo } from "node:test";
-
 interface IProps {
     todos: {
         id: number,
         title: string,
         isComplete: boolean
     }[];
-    owner: string;
-    age: number;
-    isDeveloper: boolean;
+    owner?: string;
+    age?: number;
+    isDeveloper?: boolean;
 }
 const TodoData = (props: IProps) => {
     const { todos } = props;
@@ -18,7 +16,7 @@ const TodoData = (props: IProps) => {
                 {todos.map(item => {
                     return (
                         <div key={item.id}>
-                            <div>{item.title}</div>
+                            <div style={{ padding: "10px 0" }}>{item.title}</div>
                         </div>
                     )
                 })}
