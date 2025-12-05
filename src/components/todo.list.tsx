@@ -29,6 +29,11 @@ const TodoList = () => {
     // ]
 
     const [listTodo, setListTodo] = useState<ITodo[]>([])
+
+    const addNewTodo = (todo: ITodo) => {
+        setListTodo([...listTodo, todo])
+    }
+
     return (
         <>
             <div style={{ width: "600px", margin: "50px auto", border: "1px solid black", padding: "10px", borderRadius: "10px" }}>
@@ -41,13 +46,10 @@ const TodoList = () => {
                 >My Todo list:</div>
                 <br />
                 <TodoInput
-                    name="Learn React TypeScript"
+                    addNewTodo={addNewTodo}
                 />
                 <TodoData
                     todos={listTodo}
-                // owner={"HoiDanIT"}
-                // age={25}
-                // isDeveloper={true}
                 />
             </div >
         </>
