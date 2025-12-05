@@ -7,9 +7,11 @@ interface IProps {
     owner?: string;
     age?: number;
     isDeveloper?: boolean;
+
+    deleteTodo: (id: number) => void;
 }
 const TodoData = (props: IProps) => {
-    const { todos } = props;
+    const { todos, deleteTodo } = props;
     return (
         <>
             <div>
@@ -18,7 +20,8 @@ const TodoData = (props: IProps) => {
                         <div key={item.id}>
                             <div style={{ padding: "10px 0" }}>
                                 {item.id} - {item.title}
-                                &nbsp;&nbsp;&nbsp;<button>Delete</button>
+                                &nbsp;&nbsp;&nbsp;
+                                <button onClick={() => deleteTodo(item.id)}>Delete</button>
                             </div>
                         </div>
                     )
